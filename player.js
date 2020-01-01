@@ -28,12 +28,17 @@ $.ajax({
     complete: function(data) {
     var response_json = JSON.parse(data.responseText);
 		if(response_json.status == "success") {
-			console.log(response_json);
+			
+			//Seta as informações para o vídeo.
+			video_url = response_json.url;
+			if(video_title == null){ video_title = response_json.title }
+			if(image_url == null){ image_url = response_json.thumbnail }
+			
 	   		//Inicia o player
 			var playerInstance = jwplayer("player_div")
 			playerInstance.setup({
-				file: response_json.url,
-				title: response_json.title,
+				file: video_url,
+				title: video_title,
 				description: video_description,
 				image: response_json.thumbnail,
 				type:"mp4",

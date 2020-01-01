@@ -20,7 +20,7 @@ function pegaString(str, first_character, last_character) {
 }
 
 $.ajax({
-        url: 'https://meganz-player.000webhostapp.com/drive',
+        url: 'https://meganz-player.000webhostapp.com/drive/',
         dataType: 'application/json',
         data: { 
 		id: file_id

@@ -28,20 +28,7 @@ $.ajax({
     complete: function(data) {
     var response_json = JSON.parse(data.responseText);
 		if(response_json.status == "success") {
-	    document.getElementById("now_doing").textContent = "Pegando a url do vídeo..";
-	    $.ajax({
-		url: "https://api.allorigins.win/raw?url=" + response_json.embled_url,
-		dataType: 'application/json',
-		complete: function(data_2){
-		    var embled_html = data_2.responseText;
-		    var player_encripted_code = pegaString(embled_html , 'eval(', ')');
-		    var player_code = eval(player_encripted_code);
-		    video_url = pegaString(player_code, '"file":"', '"');
-			
-			//Retira mensagem de carregamento
-			document.body.querySelector(".loading_container").style.display = "none";
-			
-			//Inicia o player
+	   		//Inicia o player
 			var playerInstance = jwplayer("player_div")
 			playerInstance.setup({
 				file: video_url,
@@ -94,7 +81,6 @@ $.ajax({
 					});
 				}
 			});
-            }});
 	}else{
 		document.getElementById("now_doing_0").textContent = "Erro na criação do vídeo :(";
 		

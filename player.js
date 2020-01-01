@@ -33,9 +33,9 @@ $.ajax({
 			var playerInstance = jwplayer("player_div")
 			playerInstance.setup({
 				file: response_json.url,
-				title: video_title,
+				title: response_json.title,
 				description: video_description,
-				image: image_url,
+				image: response_json.thumbnail,
 				type:"mp4",
 				width: "100%",
 				height: "100%"

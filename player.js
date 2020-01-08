@@ -40,7 +40,7 @@ $.ajax({
 				file: video_url,
 				title: video_title,
 				description: video_description,
-				image: response_json.thumbnail,
+				image: image_url,
 				type:"mp4",
 				width: "100%",
 				height: "100%"

@@ -30,9 +30,9 @@ $.ajax({
 		if(response_json.status == "success") {
 			
 			//Seta as informações para o vídeo.
-			video_url = response_json.url;
+			video_url = response_json.video_url;
 			if(video_title == null){ video_title = response_json.title }
-			if(image_url == null){ image_url = response_json.thumbnail }
+			if(image_url == null){ image_url = response_json.poster_url }
 			
 	   		//Inicia o player
 			var playerInstance = jwplayer("player_div")

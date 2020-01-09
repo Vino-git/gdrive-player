@@ -60,33 +60,6 @@ $.ajax({
 			
 			playerInstance.addButton(button_iconPath, button_tooltipText, download_ButtonClickAction, buttonId);
 			
-			//Função para corrigir o bug do erro 503 do servidor de arquivos.
-			
-			//Guarda o tempo que seria seekado no video.
-			jwplayer().on('seek', function(s) {
-				video_seek = s.offset;
-			});
-			
-			//Recarrega o video e coloca esse tempo.
-			jwplayer().on('error', function (e) {
-				if(e.code == 221000){
-					jwplayer().load({file: video_url});
-					jwplayer().seek(video_seek);
-				}
-				if (e.code == 224003) {
-				    $.ajax({
-					    url: "https://meganz-player.000webhostapp.com/clearcache.php",
-					    data: { 
-						id: file_id
-					    }
-					})
-					.done(function(data) {
-					    console.error("[Mega.nz Player] Erro na criação do vídeo.");
-					    console.warn("Recarregando página..");
-					    location.reload();
-					});
-				}
-			});
 	}else{
 		document.getElementById("now_doing_0").textContent = "Erro na criação do vídeo :(";
 		

@@ -96,9 +96,6 @@ $.ajax({
 		if(response_json.error_code == "e_noexist") {
 			document.getElementById("now_doing").textContent = "Nenhum vídeo foi encontrado, verifique se o ID está correto.";
 		}
-		if(response_json.error_code == "e_size") {
-			document.getElementById("now_doing").textContent = "O vídeo precisa ter menos que 512MB";
-		}
 		
 		$('.loading_container').css({'background-color':'rgb(235, 68, 68)'});
 		console.error("[Mega.nz Player] Erro na criação do vídeo.");

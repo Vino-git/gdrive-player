@@ -90,11 +90,11 @@ $.ajax({
 	}else{
 		document.getElementById("now_doing_0").textContent = "Erro na criação do vídeo :(";
 		
-		if(response_json.error_code == "e_curl") {
-			document.getElementById("now_doing").textContent = "Verifique se o ID está disponivel.";
+		if(response_json.error_code == "e_noid") {
+			document.getElementById("now_doing").textContent = "Selecione um ID de video.";
 		}
-		if(response_json.error_code == "e_format") {
-			document.getElementById("now_doing").textContent = "O vídeo precisa estar no formato .mp4";
+		if(response_json.error_code == "e_noexist") {
+			document.getElementById("now_doing").textContent = "Nenhum vídeo foi encontrado, verifique se o ID está correto.";
 		}
 		if(response_json.error_code == "e_size") {
 			document.getElementById("now_doing").textContent = "O vídeo precisa ter menos que 512MB";
